@@ -7,13 +7,13 @@ This project provides a Dockerized environment for running WordPress with Ioncub
 ### 1. Clone the repository
 Clone this repository to your local machine:
 ```bash
-    git clone git@github.com:ibnu-ja/docker-wordpress-ioncube.git
-    cd docker-wordpress-ioncube
+git clone git@github.com:ibnu-ja/docker-wordpress-ioncube.git
+cd docker-wordpress-ioncube
 ```
 
 ### 2. Copy the environment configuration file
 ```bash
-    cp .env.example .env
+cp .env.example .env
 ```
 
 ### 3. Edit `docker-compose.yaml`
