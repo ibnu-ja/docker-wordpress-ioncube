@@ -51,7 +51,7 @@ podman compose down
 Make sure that the `uploads`, `plugins`, and `themes` directories have the correct ownership for the web server to access:
 
 ```bash
-sudo chown -R user:user ./path/to/your/uploads ./path/to/your/plugins ./path/to/your/themes
+sudo chown -R user:user ./uploads ./plugins ./themes
 ```
 
 Replace `user:user` with the appropriate user and group for your environment.
