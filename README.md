@@ -1,6 +1,8 @@
-# Docker WordPress Ioncube
+# Rootless Docker WordPress Ioncube
 
-This project provides a Dockerized environment for running WordPress with Ioncube support. It uses Docker/Podman to manage containers and includes configuration for running PHP with Ioncube Loader.
+This project provides a rootless Dockerized environment for running WordPress with Ioncube support. It uses Docker/Podman to manage containers and includes configuration for running PHP with Ioncube Loader.
+
+If you want to use in rootfull environment, take a look at `Dockerfile` and just copy the ioncube parts.
 
 ## Setup Instructions
 

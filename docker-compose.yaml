@@ -6,7 +6,6 @@ services:
       args:
         - PHP_VERSION=8.3
     restart: always
-    userns_mode: keep-id
     ports:
       - "${WP_PORT:-9092}:80"
     environment:
@@ -18,7 +17,6 @@ services:
       - ./uploads:/var/www/html/wp-content/uploads:z
       - ./plugins:/var/www/html/wp-content/plugins:z
       - ./themes:/var/www/html/wp-content/themes:z
-      - ./wordpress.ini:/usr/local/etc/php/conf.d/wordpress.ini:z
     depends_on:
       - db
 
