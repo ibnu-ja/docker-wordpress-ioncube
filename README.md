@@ -1,4 +1,4 @@
-# Docker Wordpress Ioncube
+# Docker WordPress Ioncube
 
 This project provides a Dockerized environment for running WordPress with Ioncube support. It uses Docker/Podman to manage containers and includes configuration for running PHP with Ioncube Loader.
 
@@ -20,7 +20,7 @@ cp .env.example .env
 
 Open `docker-compose.yaml` and make the necessary adjustments:
 
-- Update the `PUID` and `PGID` values to match your system's user/group ID.
+- Your WordPress & Adminer port
 - Set the appropriate `PHP_VERSION` context to the version of PHP you want to use.
 
 ### 4. Start the containers

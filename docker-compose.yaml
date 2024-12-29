@@ -4,20 +4,12 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - PHP_VERSION=8.1
+        - PHP_VERSION=8.3
     restart: always
-    entrypoint:
-      - /bin/sh
-      - -c
-      - |
-        usermod -u $${UID} www-data
-        groupmod -g $${GID} www-data
-        /usr/local/bin/docker-entrypoint.sh apache2-foreground
+    userns_mode: keep-id
     ports:
-      - "9092:80"
+      - "${WP_PORT:-9092}:80"
     environment:
-      PUID: 1000
-      PGID: 1000
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: "${DB_USER:-user}"
       WORDPRESS_DB_PASSWORD: "${DB_PASS?error}"
@@ -34,7 +26,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - "9091:8080"
+      - "${ADMINER_PORT:-9091}:8080"
     depends_on:
       - db
 
