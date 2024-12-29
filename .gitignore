@@ -1,0 +1,10 @@
+.idea
+
+plugins
+themes
+uploads
+backup
+
+wordpress.ini
+
+.env
