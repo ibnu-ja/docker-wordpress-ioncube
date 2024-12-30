@@ -36,36 +36,3 @@ or
 podman compose up -d
 ```
 
-### 5. Bring down the containers
-
-If you need to stop the containers, you can bring them down with:
-```bash
-docker compose down
-```
-
-or
-```bash
-podman compose down
-```
-
-### 6. Set the correct file permissions
-
-Make sure that the `uploads`, `plugins`, and `themes` directories have the correct ownership for the web server to access:
-
-```bash
-sudo chown -R user:user ./uploads ./plugins ./themes
-```
-
-Replace `user:user` with the appropriate user and group for your environment.
-
-### 7. Restart the containers
-
-After adjusting file permissions, you can bring the containers back up:
-```bash
-docker compose up -d
-```
-
-or
-```bash
-podman compose up -d
-```
