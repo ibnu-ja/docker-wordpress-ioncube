@@ -5,6 +5,8 @@ themes
 uploads
 backup
 
+caddy_data
+
 wordpress.ini
 
 .env
