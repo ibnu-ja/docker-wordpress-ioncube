@@ -20,7 +20,7 @@ RUN echo "Using PHP version: $PHP_VER" && \
     mkdir -p /opt/ioncube && \
     curl -fsSL https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz | \
     tar -xz -C /opt/ioncube --strip-components=1 && \
-    echo "zend_extension = /opt/ioncube/ioncube_loader_lin_${MAJOR_MINOR_VERSION}.so" >> $PHP_INI_DIR/php.ini
+    echo "zend_extension = /opt/ioncube/ioncube_loader_lin_${PHP_VER}.so" >> $PHP_INI_DIR/php.ini
 
 # Copy the modified entrypoint script to the container
 COPY docker-entrypoint.sh /usr/local/bin/
