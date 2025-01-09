@@ -60,5 +60,4 @@ if [ ! -s wp-config.php ] && [ "${#wpEnvs[@]}" -gt 0 ]; then
     done
 fi
 
-# Execute the given command (apache2-foreground by default)
 exec "$@"
