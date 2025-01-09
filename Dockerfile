@@ -2,9 +2,11 @@ ARG PHP_VER=8.3
 
 FROM wordpress:php${PHP_VER}-fpm-alpine
 
+ARG PHP_VER
+
 # Validate PHP_VERSION within range
-RUN /bin/bash -c 'if [[ ! "$PHP_VER" =~ ^(7\.[4-9]\.[0-9]+|8\.[0-3]\.[0-9]+)$ ]]; then \
-        echo "Error: PHP version $PHP_VER not match between 7.4 and 8.3"; \
+RUN /bin/bash -c 'if [[ ! "$PHP_VER" =~ ^7\.[4-9]$|^8\.[0-3]$ ]]; then \
+        echo "Error: PHP version $PHP_VER does not match between 7.4 and 8.3"; \
         exit 1; \
     fi'
 
