@@ -25,8 +25,6 @@ RUN echo "Using PHP version: $PHP_VER" && \
 # Copy the modified entrypoint script to the container
 COPY docker-entrypoint.sh /usr/local/bin/
 
-COPY php-root-user.ini "$PHP_INI_DIR/conf.d/"
-
 # Set the correct permissions for the entrypoint script
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
