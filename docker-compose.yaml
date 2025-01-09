@@ -1,19 +1,33 @@
-services:
+services:  
+  caddy:
+    image: caddy
+    ports:
+      - "${WP_PORT:-8080}:80"
+    restart: always
+    volumes:
+      - ./caddy:/etc/caddy:z
+      - ./caddy_data:/data:z
+      - ./logs:/var/log/caddy/:z
+      - wordpress:/srv:ro,z
+      - ./uploads:/srv/wp-content/uploads:ro,z
+      - ./plugins:/srv/wp-content/plugins:ro,z
+      - ./themes:/srv/wp-content/themes:ro,z
+    depends_on:
+      - wordpress
   wordpress:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        - PHP_VERSION=8.3
+        - PHP_VER=8.3
     restart: always
-    ports:
-      - "${WP_PORT:-9092}:80"
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: "${DB_USER:-user}"
       WORDPRESS_DB_PASSWORD: "${DB_PASS?error}"
       WORDPRESS_DB_NAME: "${DB_NAME:-database}"
     volumes:
+      - wordpress:/var/www/html:z
       - ./uploads:/var/www/html/wp-content/uploads:z
       - ./plugins:/var/www/html/wp-content/plugins:z
       - ./themes:/var/www/html/wp-content/themes:z
@@ -38,6 +52,8 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - db:/var/lib/mysql:z
+      - ./mysql-conf:/etc/mysql/conf.d:ro,z
 
 volumes:
   db:
+  wordpress:

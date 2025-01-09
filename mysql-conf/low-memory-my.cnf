@@ -1,0 +1,32 @@
+[mysqld]
+# General
+performance_schema=off          # Default: on
+skip-name-resolve               # Default: off
+event_scheduler=off             # Default: on
+
+# Memory and Buffers
+innodb_buffer_pool_size=16M     # Default: 128M
+innodb_log_buffer_size=4M       # Default: 16M
+read_rnd_buffer_size=256K       # Default: 256K
+read_buffer_size=512K           # Default: 128K
+key_buffer_size=4M              # Default: 8M
+tmp_table_size=16M              # Default: 16M
+max_heap_table_size=16M         # Default: 16M
+
+# Connections
+max_connections=10              # Default: 151
+thread_stack=192K               # Default: 256K
+max_allowed_packet=1M           # Default: 16M
+sort_buffer_size=128K           # Default: 2M
+join_buffer_size=256K           # Default: 256K
+
+# Cache and Tables
+table_open_cache=64             # Default: 2000
+
+# Logs
+log_error_verbosity=1           # Default: 3
+max_binlog_size=1M              # Default: 1G
+skip-log-bin                    # Default: log-bin enabled
+
+# Open Files
+open_files_limit=64             # Default: 1024

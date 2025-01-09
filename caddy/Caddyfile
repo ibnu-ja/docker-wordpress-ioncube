@@ -1,0 +1,22 @@
+{
+	log access {
+		format console
+	}
+}
+
+:80 {
+	root * /srv
+	php_fastcgi wordpress:9000 {
+		header_up X-Forwarded-Proto {http.request.header.X-Forwarded-Proto}
+		header_up X-Forwarded-For {http.request.header.X-Forwarded-For}
+		# try_files {path} {path}/index.php =404
+		root /var/www/html
+	}
+	file_server
+
+	handle_errors {
+		respond "{err.status_code} {err.status_text}"
+	}
+
+	log access
+}
